@@ -1,0 +1,89 @@
+:root {
+  --main-900: rgba(30, 30, 30, 1);
+  --main-800: rgba(187, 69, 84, 1);
+  --main-700: rgba(229, 237, 225, 0.74);
+  --main-600: rgba(216, 210, 78, 1);
+  --main-500: rgba(30, 52, 19, 1);
+  --main-400: rgba(125, 212, 83, 1);
+  --main-300: rgba(168, 168, 168, 1);
+  --main-200: rgba(227, 221, 93, 1);
+  --main-100: rgba(234, 231, 166, 1);
+}
+
+p {
+  color: var(--main-500);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+hr {
+  border-color: var(--main-500);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(180deg, #E3DD5D, #7DD453);
+  background-repeat: no-repeat;
+  margin: 0;
+  background-attachment: fixed;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 24px;
+}
+
+header > div {
+  color: var(--main-500);
+  padding:  18px 12px;
+  background-color: var(--main-100);
+  flex-basis: 32%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.home-main {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  color: var(--main-500)
+}
+
+.about {
+  height: 380px;
+  overflow: scroll;
+  max-width: 90%;
+  background-color: var(--main-700);
+  padding: 12px;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.about-wp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
