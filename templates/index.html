@@ -39,7 +39,18 @@
           >projects</a
         >
       </div>
-      <div><a href="/blog">blog</a></div>
+      <div>
+        <a
+          id="blog"
+          href="/blog"
+          hx-swap="outerHTML"
+          hx-target=".swap-div"
+          hx-get="/blog"
+          hx-trigger="click"
+          hx-push-url="/blog"
+          >blog</a
+        >
+      </div>
     </header>
     <main class="home-main swap-div">
       <div class="video-wrapper">

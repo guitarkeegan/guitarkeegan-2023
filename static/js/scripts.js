@@ -1,6 +1,7 @@
 var aboutEl = document.querySelector("#about");
 var projectEl = document.querySelector("#projects");
 var homeLinkEl = document.querySelector("#home-lnk");
+var blogEl = document.querySelector("#blog");
 
 document.addEventListener("keyup", function(event) {
 
@@ -15,6 +16,10 @@ document.addEventListener("keyup", function(event) {
         }
         case "p": {
             projectEl.click();
+            break;
+        }
+        case "b": {
+            blogEl.click();
             break;
         }
         default:

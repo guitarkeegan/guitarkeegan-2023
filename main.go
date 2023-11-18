@@ -39,12 +39,21 @@ func main() {
 	})
 
 	router.GET("/projects", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "projects.html", nil)
+		c.HTML(http.StatusOK, "projects.html", gin.H{
+			"title": "PocketPR",
+			"p1":    "What is the project?",
+			"p2":    "What was my role in the project?",
+			"p3":    "Where is the project at now?",
+		})
+	})
+
+	router.GET("/blog", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "blog.html", nil)
 	})
 
 	blog.CreateDBConnection()
 
-	res, err := blog.GetPosts(1)
+	res, err := blog.GetPosts(3)
 
 	checkErr(err)
 	fmt.Println(res)
