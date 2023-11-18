@@ -5,19 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keegan Anglim</title>
     <link rel="stylesheet" href="/static/css/styles.css" />
-    <script src="https://unpkg.com/htmx.org@1.9.8" integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr" crossorigin="anonymous"></script>
-
+    <script
+      src="https://unpkg.com/htmx.org@1.9.8"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- header that i want to be a reusable component -->
+
     <header>
-      <div><a id="about" href="/about" hx-swap="outerHTML" hx-target=".swap-div" hx-post="/about" hx-trigger="click" hx-push-url="/about">about</a></div>
-      <div><a href="/contact">contact</a></div>
+      <div>
+        <a
+          id="about"
+          href="/about"
+          hx-swap="outerHTML"
+          hx-target=".swap-div"
+          hx-post="/about"
+          hx-trigger="click"
+          hx-push-url="/about"
+          >about</a
+        >
+      </div>
+      <div>
+        <a
+          id="projects"
+          href="/projects"
+          hx-swap="outerHTML"
+          hx-target=".swap-div"
+          hx-get="/projects"
+          hx-trigger="click"
+          hx-push-url="/projects"
+          >projects</a
+        >
+      </div>
       <div><a href="/blog">blog</a></div>
     </header>
-
     <main class="home-main swap-div">
-
       <div class="video-wrapper">
         <video id="home-vid" loop autoplay muted width="280">
           <source src="/videos/website-funny.MP4" type="video/mp4" />
@@ -25,6 +49,7 @@
       </div>
 
       <h1>Keegan Anglim</h1>
+      <h2>Software Engineer</h2>
     </main>
     <script src="/static/js/scripts.js"></script>
   </body>
