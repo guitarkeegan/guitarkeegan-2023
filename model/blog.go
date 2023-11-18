@@ -53,8 +53,7 @@ func GetPosts(count int) ([]Blog, error) {
 
 	for rows.Next() {
 		singlePost := Blog{}
-		err = rows.Scan(&singlePost.ID, &singlePost.Title, &singlePost.Description, &singlePost.CS1, &singlePost.CS2, &singlePost.CS3,
-			&singlePost.P1, &singlePost.P2, &singlePost.P3, &singlePost.P4, &singlePost.P5, &singlePost.CreatedAt, &singlePost.Repo)
+		err = rows.Scan(&singlePost.ID, &singlePost.Title, &singlePost.Description, &singlePost.P1, &singlePost.P2, &singlePost.P3, &singlePost.P4, &singlePost.P5, &singlePost.CS1, &singlePost.CS2, &singlePost.CS3, &singlePost.Repo, &singlePost.CreatedAt)
 
 		if err != nil {
 			return nil, err
@@ -70,4 +69,25 @@ func GetPosts(count int) ([]Blog, error) {
 	}
 
 	return posts, err
+}
+
+func GetPostById(id string) (Blog, error) {
+	stmt, err := DB.Prepare("SELECT * FROM blog WHERE id = ?")
+
+	if err != nil {
+		return Blog{}, err
+	}
+
+	blog := Blog{}
+
+	sqlErr := stmt.QueryRow(id).Scan(&blog.ID, &blog.Title, &blog.Description, &blog.P1, &blog.P2, &blog.P3, &blog.P4, &blog.P5, &blog.CS1, &blog.CS2, &blog.CS3, &blog.Repo, &blog.CreatedAt)
+
+	if sqlErr != nil {
+		if sqlErr == sql.ErrNoRows {
+			return Blog{}, nil
+		}
+		return Blog{}, sqlErr
+	}
+
+	return blog, nil
 }

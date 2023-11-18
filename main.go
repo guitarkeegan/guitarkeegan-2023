@@ -48,15 +48,37 @@ func main() {
 	})
 
 	router.GET("/blog", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "blog.html", nil)
+
+		res, err := blog.GetPosts(3)
+
+		checkErr(err)
+		fmt.Println(res)
+
+		c.HTML(http.StatusOK, "blog.html", res)
+	})
+
+	router.GET("/blog/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		post, err := blog.GetPostById(id)
+
+		fmt.Println(post)
+
+		checkErr(err)
+
+		if post.Title == "" {
+			c.HTML(http.StatusBadRequest, "post.html", gin.H{
+				"Title":       "none found",
+				"Description": "-",
+				"ID":          "#",
+			})
+			return
+		}
+
+		c.HTML(http.StatusOK, "post.html", post)
 	})
 
 	blog.CreateDBConnection()
-
-	res, err := blog.GetPosts(3)
-
-	checkErr(err)
-	fmt.Println(res)
 
 	router.Run(":8080")
 }

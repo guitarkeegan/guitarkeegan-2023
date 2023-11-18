@@ -7,16 +7,24 @@
       font-size: 36px;
     "
   >
-    Blog
+   {{.Title}} 
   </h1>
   <section class="about-wp">
     <div class="about">
-      {{range .}}
-      <a href="/blog/{{.ID}}">
-        <h2>{{.Title}}</h2>
-      </a>
-      <h3>{{.Description}}</h3>
-      {{end}}
+        <p>{{.P1}}</p>
+        <hr />
+        {{if .P2}}
+        <p>{{.P2}}</p>
+        <hr />
+        {{end}}
+
+        {{if .P3}}
+        <p>{{.P3}}</p>
+        <hr />
+        {{end}}
+        {{if .P4}}
+        <p>{{.P4}}</p>
+        {{end}}
     </div>
 
     <a

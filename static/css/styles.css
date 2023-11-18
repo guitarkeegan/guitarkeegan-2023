@@ -10,6 +10,14 @@
   --main-100: rgba(234, 231, 166, 1);
 }
 
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
 p {
   color: var(--main-500);
 }
