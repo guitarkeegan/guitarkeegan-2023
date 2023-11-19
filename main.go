@@ -27,12 +27,18 @@ func main() {
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
+
 	router.GET("/home", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "main", nil)
 	})
 
 	router.GET("/about", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "about.html", nil)
+		if c.GetHeader("HX-Request") == "true" {
+			c.HTML(http.StatusOK, "about.html", nil)
+			return
+		}
+
+		c.HTML(http.StatusOK, "about-dir.html", nil)
 	})
 
 	router.GET("/projects", func(c *gin.Context) {
@@ -40,7 +46,11 @@ func main() {
 
 		checkErr(err)
 
-		c.HTML(http.StatusOK, "projects.html", res)
+		if c.GetHeader("HX-Request") == "true" {
+			c.HTML(http.StatusOK, "projects.html", res)
+			return
+		}
+		c.HTML(http.StatusOK, "projects-dir.html", res)
 	})
 
 	router.GET("/blog", func(c *gin.Context) {
@@ -49,7 +59,11 @@ func main() {
 
 		checkErr(err)
 
-		c.HTML(http.StatusOK, "blog.html", res)
+		if c.GetHeader("HX-Request") == "true" {
+			c.HTML(http.StatusOK, "blog.html", res)
+			return
+		}
+		c.HTML(http.StatusOK, "blog-dir.html", res)
 	})
 
 	router.GET("/blog/:id", func(c *gin.Context) {

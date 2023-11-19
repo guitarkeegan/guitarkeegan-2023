@@ -10,21 +10,29 @@
   --main-100: rgba(234, 231, 166, 1);
 }
 
+h1 {
+  font-family: 'Jacques Francois', serif;
+}
+
 h2 {
+  font-family: 'Jacques Francois', serif;
   font-size: 32px;
 }
 
 h3 {
+  font-family: 'Jacques Francois', serif;
   font-size: 28px;
 }
 
 p {
   color: var(--main-500);
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
   text-decoration: none;
   color: black;
+  font-family: 'Poppins', sans-serif;
 }
 
 hr {
@@ -41,7 +49,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(180deg, #E3DD5D, #7DD453);
+  background-image: linear-gradient(180deg, #e3dd5d, #7dd453);
   background-repeat: no-repeat;
   margin: 0;
   background-attachment: fixed;
@@ -56,7 +64,7 @@ header {
 
 header > div {
   color: var(--main-500);
-  padding:  18px 12px;
+  padding: 18px 12px;
   background-color: var(--main-100);
   flex-basis: 32%;
   text-align: center;
@@ -70,7 +78,7 @@ header > div {
   align-items: center;
   gap: 24px;
   justify-content: center;
-  color: var(--main-500)
+  color: var(--main-500);
 }
 
 .about {
@@ -99,4 +107,11 @@ header > div {
 
 .c-div {
   max-width: 280px;
+}
+
+@media screen and (min-width: 750px) {
+  .home-main {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }

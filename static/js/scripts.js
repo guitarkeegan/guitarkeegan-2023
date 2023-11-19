@@ -3,6 +3,8 @@ var projectEl = document.querySelector("#projects");
 var homeLinkEl = document.querySelector("#home-lnk");
 var blogEl = document.querySelector("#blog");
 var projectAbsEls = document.querySelectorAll(".project-abstract");
+var screenSize = window.innerWidth;
+var homeVidEl = document.querySelector("#home-vid");
 
 document.addEventListener("keyup", function(event) {
 
@@ -34,6 +36,12 @@ function truncateText(sentence) {
         return newString + "...";
     }
 }
+
+if (window.innerWidth > 600) {
+    console.log("bigger");
+    console.log(homeVidEl);
+    homeVidEl.setAttribute("width", "400px");
+} 
 
 for (let i=0;i<projectAbsEls.length;i++) {
     projectAbsEls[i].textContent = truncateText(projectAbsEls[i].textContent);
