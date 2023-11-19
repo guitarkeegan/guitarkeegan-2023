@@ -32,19 +32,15 @@ func main() {
 	})
 
 	router.GET("/about", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
-	})
-	router.POST("/about", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "about.html", nil)
 	})
 
 	router.GET("/projects", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "projects.html", gin.H{
-			"Title": "PocketPR",
-			"P1":    "What is the project?",
-			"P2":    "What was my role in the project?",
-			"P3":    "Where is the project at now?",
-		})
+		res, err := blog.GetProjects(3)
+
+		checkErr(err)
+
+		c.HTML(http.StatusOK, "projects.html", res)
 	})
 
 	router.GET("/blog", func(c *gin.Context) {

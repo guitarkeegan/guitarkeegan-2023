@@ -1,57 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keegan Anglim</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
-    <script
-      src="https://unpkg.com/htmx.org@1.9.8"
-      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+  {{template "head.html" .}}
   <body>
-    <!-- header that i want to be a reusable component -->
 
-    <header>
-      <div>
-        <a
-          id="about"
-          href="/about"
-          hx-swap="outerHTML"
-          hx-target=".swap-div"
-          hx-post="/about"
-          hx-trigger="click"
-          hx-push-url="/about"
-          >about</a
-        >
-      </div>
-      <div>
-        <a
-          id="projects"
-          href="/projects"
-          hx-swap="outerHTML"
-          hx-target=".swap-div"
-          hx-get="/projects"
-          hx-trigger="click"
-          hx-push-url="/projects"
-          >projects</a
-        >
-      </div>
-      <div>
-        <a
-          id="blog"
-          href="/blog"
-          hx-swap="outerHTML"
-          hx-target=".swap-div"
-          hx-get="/blog"
-          hx-trigger="click"
-          hx-push-url="/blog"
-          >blog</a
-        >
-      </div>
-    </header>
+    {{template "header.html" .}}
+
     <main class="home-main swap-div">
       <div class="video-wrapper">
         <video id="home-vid" loop autoplay muted width="280">

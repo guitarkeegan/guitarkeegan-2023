@@ -1,4 +1,4 @@
-<main id="swap-home-div">
+<main id="swap-home-div" class="swap-div">
   <h1
     style="
       text-align: center;
@@ -12,52 +12,17 @@
   <section class="about-wp">
     <div class="about">
       {{range .}}
-      <a href="/blog/{{.ID}}">
-        <h2>{{.Title}}</h2>
-      </a>
-      <h3>{{.Description}}</h3>
-      {{end}}
+      <div>
+        <a href="/blog/{{.ID}}">
+          <h2 style="padding-bottom: 0">{{.Title}}</h2>
+        </a>
+        <p style="font-weight: normal">{{.Description}}</p>
+      </div>
+        {{end}}
     </div>
 
-    <a
-      id="home-lnk"
-      href="/"
-      hx-swap="innerHTML"
-      hx-target="#swap-home-div"
-      hx-get="/home"
-      hx-push-url="/"
-    >
-      <svg
-        class="home-btn"
-        width="73"
-        height="73"
-        viewBox="0 0 73 73"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="36.5" cy="36.5" r="36.5" fill="#BB4554" />
-        <g clip-path="url(#clip0_1_105)">
-          <path
-            d="M52 38C51.8684 38.0008 51.738 37.9755 51.6161 37.9258C51.4943 37.876 51.3835 37.8027 51.29 37.71L37 23.41L22.71 37.71C22.5187 37.8738 22.2727 37.9594 22.021 37.9497C21.7693 37.94 21.5306 37.8357 21.3525 37.6576C21.1744 37.4795 21.07 37.2407 21.0603 36.9891C21.0506 36.7374 21.1362 36.4913 21.3 36.3L36.3 21.3C36.4874 21.1138 36.7408 21.0092 37.005 21.0092C37.2692 21.0092 37.5227 21.1138 37.71 21.3L52.71 36.3C52.8476 36.4404 52.9408 36.6182 52.9779 36.8113C53.015 37.0043 52.9944 37.204 52.9186 37.3854C52.8429 37.5668 52.7153 37.7218 52.552 37.8312C52.3886 37.9405 52.1966 37.9992 52 38Z"
-            fill="white"
-          />
-          <path
-            d="M37 26.79L25 38.83V51C25 51.5304 25.2107 52.0391 25.5858 52.4142C25.9609 52.7893 26.4696 53 27 53H34V43H40V53H47C47.5304 53 48.0391 52.7893 48.4142 52.4142C48.7893 52.0391 49 51.5304 49 51V38.76L37 26.79Z"
-            fill="white"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0_1_105">
-            <rect
-              width="36"
-              height="36"
-              fill="white"
-              transform="translate(19 19)"
-            />
-          </clipPath>
-        </defs>
-      </svg>
-    </a>
+    {{template "homelink.html" .}}
+
     <script src="/static/js/scripts.js" type="text/javascript"></script>
   </section>
 </main>
