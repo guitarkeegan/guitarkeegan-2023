@@ -11,28 +11,30 @@
 }
 
 h1 {
-  font-family: 'Jacques Francois', serif;
+  font-family: "Jacques Francois", serif;
+  font-size: 64px;
 }
 
 h2 {
-  font-family: 'Jacques Francois', serif;
+  font-family: "Jacques Francois", serif;
   font-size: 32px;
 }
 
 h3 {
-  font-family: 'Jacques Francois', serif;
+  font-family: "Jacques Francois", serif;
   font-size: 28px;
 }
 
 p {
   color: var(--main-500);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
   text-decoration: none;
   color: black;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
 }
 
 hr {
@@ -109,9 +111,17 @@ header > div {
   max-width: 280px;
 }
 
+.github-link {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 750px) {
   .home-main {
     flex-direction: row;
     justify-content: space-evenly;
+  }
+  a:hover {
+    opacity: 50%;
   }
 }

@@ -53,6 +53,26 @@ func main() {
 		c.HTML(http.StatusOK, "projects-dir.html", res)
 	})
 
+	router.GET("/projects/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		project, err := blog.GetProjectById(id)
+
+		fmt.Println(project)
+
+		checkErr(err)
+
+		if project.Title == "" {
+			c.HTML(http.StatusBadRequest, "projects.html", gin.H{
+				"Title":       "none found",
+				"Description": "-",
+				"ID":          "#",
+			})
+			return
+		}
+		c.HTML(http.StatusOK, "project-single.html", project)
+	})
+
 	router.GET("/blog", func(c *gin.Context) {
 
 		res, err := blog.GetPosts(3)

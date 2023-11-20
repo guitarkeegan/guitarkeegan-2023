@@ -6,6 +6,11 @@ var projectAbsEls = document.querySelectorAll(".project-abstract");
 var screenSize = window.innerWidth;
 var homeVidEl = document.querySelector("#home-vid");
 
+if (!localStorage.getItem("hotkeys") && window.innerWidth > 800 ) {
+    alert("Hotkeys: a: about, p: project, b: blog, h: home");
+    localStorage.setItem("hotkeys", "true");
+}
+
 document.addEventListener("keyup", function(event) {
 
     switch (event.key) {
@@ -38,8 +43,6 @@ function truncateText(sentence) {
 }
 
 if (window.innerWidth > 600) {
-    console.log("bigger");
-    console.log(homeVidEl);
     homeVidEl.setAttribute("width", "400px");
 } 
 

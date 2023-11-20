@@ -1,0 +1,31 @@
+{{template "head.html" .}}
+{{template "header.html" .}}
+
+<main id="swap-home-div" class="swap-div">
+  <h1
+    style="
+      text-align: center;
+      padding-top: 80px;
+      padding-bottom: 40px;
+      font-size: 36px;
+    "
+  >
+    {{.Title}}
+  </h1>
+  <section class="about-wp">
+    <div class="about">
+      <p>{{.Des1}}</p>
+      <hr />
+      {{if .Des2}}
+      <p>{{.Des2}}</p>
+      <hr />
+      {{end}} {{if .Des3}}
+      <p>{{.Des3}}</p>
+      {{end}}
+    </div>
+    {{template "homelink.html" .}}
+    <script src="/static/js/scripts.js" type="text/javascript"></script>
+  </section>
+</main>
+
+{{template "homelink.html" .}}
