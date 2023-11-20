@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for guitarkeegan-2023 on 2023-11-19T19:34:34-08:00
+# fly.toml app configuration file generated for guitarkeegan-2023-dry-butterfly-5629 on 2023-11-19T19:46:00-08:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "guitarkeegan-2023"
+app = "guitarkeegan-2023-dry-butterfly-5629"
 primary_region = "lax"
 
 [build]
