@@ -6,8 +6,8 @@ type Project struct {
 	Id    int     `json:"id"`
 	Title string  `json:"title"`
 	Des1  string  `json:"des1"`
-	Des2  string  `json:"des2"`
-	Des3  string  `json:"des3"`
+	Des2  *string `json:"des2"`
+	Des3  *string `json:"des3"`
 	Live  *string `json:"live"`
 	Repo  *string `json:"repo"`
 }
