@@ -6,12 +6,7 @@ var projectAbsEls = document.querySelectorAll(".project-abstract");
 var screenSize = window.innerWidth;
 var homeVidEl = document.querySelector("#home-vid");
 
-if (!localStorage.getItem("hotkeys") && window.innerWidth > 800 ) {
-    alert("Hotkeys: a: about, p: project, b: blog, h: home");
-    localStorage.setItem("hotkeys", "true");
-}
-
-document.addEventListener("keyup", function(event) {
+document.addEventListener("keyup", function (event) {
 
     switch (event.key) {
         case "a": {
@@ -43,9 +38,11 @@ function truncateText(sentence) {
 }
 
 if (window.innerWidth > 600) {
-    homeVidEl.setAttribute("width", "400px");
-} 
+    if (homeVidEl) {
+        homeVidEl.setAttribute("width", "400px");
+    }
+}
 
-for (let i=0;i<projectAbsEls.length;i++) {
+for (let i = 0; i < projectAbsEls.length; i++) {
     projectAbsEls[i].textContent = truncateText(projectAbsEls[i].textContent);
 }

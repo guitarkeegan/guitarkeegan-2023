@@ -1,15 +1,23 @@
-    {{block "main" .}}
-    <main class="home-main swap-div">
+{{block "main" .}}
+<main class="home-main swap-div">
 
-      <div class="video-wrapper">
-        <video id="home-vid" loop autoplay muted width="280">
-          <source src="/videos/website-funny.MP4" type="video/mp4" />
-        </video>
-      </div>
+  <div class="video-wrapper">
+    <video id="home-vid" loop autoplay muted width="280">
+      <source src="/videos/website-funny.MP4" type="video/mp4" />
+    </video>
+  </div>
 
-      <div>
-      <h1>Keegan Anglim</h1>
-      <h2 style="font-size: 24px; font-weight: normal;" >Software Developer</h2>
-      </div>
-    </main>
-    {{end}}
+  <div>
+    <h1>Keegan Anglim</h1>
+    <h2 style="font-size: 24px; font-weight: normal;">Software Developer</h2>
+  </div>
+  <script>
+
+    var homeVidEl = document.querySelector("#home-vid");
+
+    if (window.innerWidth > 600) {
+      homeVidEl.setAttribute("width", "400px");
+    } 
+  </script>
+</main>
+{{end}}

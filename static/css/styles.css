@@ -128,3 +128,13 @@ header > div {
     font-size: 64px;
   }
 }
+
+.git-icon {
+  color: var(--main-500);
+}
+
+.git-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
