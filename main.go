@@ -18,6 +18,7 @@ func checkErr(err error) {
 
 func main() {
 
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.Use(gin.ErrorLogger())
 	router.LoadHTMLGlob("templates/*")

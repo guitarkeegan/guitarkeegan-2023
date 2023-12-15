@@ -1,20 +1,23 @@
 # Use the official Go image as the base image
-FROM golang:1.20
+FROM golang:1.20-alpine3.19 AS build-stage
 
-# Set the working directory inside the container
+WORKDIR /build
+COPY . .
+RUN go mod download
+RUN go build -o /build/main 
+
+# Deploy Stage
+FROM alpine:3.19
+RUN addgroup -S keegan && adduser -S keegan -G keegan
+USER keegan
 WORKDIR /app
 
-# Copy the Go modules files
-COPY go.mod go.sum ./
-
-# Download and install the Go dependencies
-RUN go mod download
-
-# Copy the rest of your application code into the container
-COPY . .
-
-# Build the Go application
-RUN go build -o main .
+COPY --from=build-stage --chown=keegan:keegan /build/main .
+COPY --chown=keegan:keegan ./images ./images
+COPY --chown=keegan:keegan ./static ./static
+COPY --chown=keegan:keegan ./templates ./templates
+COPY --chown=keegan:keegan ./videos ./videos
+COPY --chown=keegan:keegan ./db.db .
 
 # Set the command to run your Go application
-CMD ["./main"]
+CMD ["/app/main"]
