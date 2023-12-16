@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 type Blog struct {
@@ -28,7 +28,7 @@ var DB *sql.DB
 
 func CreateDBConnection() error {
 
-	db, err := sql.Open("sqlite3", "db.db")
+	db, err := sql.Open("sqlite", "db.db")
 	if err != nil {
 		log.Fatal(err)
 		// Handle the error

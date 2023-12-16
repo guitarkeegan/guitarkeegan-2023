@@ -4,7 +4,7 @@ FROM golang:1.20-alpine3.19 AS build-stage
 WORKDIR /build
 COPY . .
 RUN go mod download
-RUN go build -o /build/main 
+RUN go build -o main
 
 # Deploy Stage
 FROM alpine:3.19
