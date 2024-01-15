@@ -41,7 +41,7 @@ func CreateDBConnection() error {
 
 func GetPosts(count int) ([]Blog, error) {
 
-	rows, err := DB.Query("SELECT * FROM blog")
+	rows, err := DB.Query("SELECT * FROM blog ORDER BY createdAt DESC LIMIT 5")
 
 	if err != nil {
 		return nil, err
