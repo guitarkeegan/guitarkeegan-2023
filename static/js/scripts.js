@@ -37,9 +37,10 @@ function truncateText(sentence) {
     }
 }
 
-if (window.innerWidth > 600) {
+// if (window.innerWidth > 600) {
+if (window.innerWidth < 600) {
     if (homeVidEl) {
-        homeVidEl.setAttribute("width", "400px");
+        homeVidEl.setAttribute("width", "280px");
     }
 }
 
