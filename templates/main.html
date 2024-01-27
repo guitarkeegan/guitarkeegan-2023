@@ -2,7 +2,7 @@
 <main class="home-main swap-div">
 
   <div class="video-wrapper">
-    <video id="home-vid" loop autoplay muted width="280">
+    <video id="home-vid" loop autoplay muted width="400">
       <source src="/videos/website-funny.MP4" type="video/mp4" />
     </video>
   </div>
@@ -15,8 +15,8 @@
 
     var homeVidEl = document.querySelector("#home-vid");
 
-    if (window.innerWidth > 600) {
-      homeVidEl.setAttribute("width", "400px");
+    if (window.innerWidth < 600) {
+      homeVidEl.setAttribute("width", "280px");
     } 
   </script>
 </main>
