@@ -2,19 +2,12 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	blog "guitarkeegan-2023.com/v2/model"
 
 	"github.com/gin-gonic/gin"
 )
-
-func checkErr(err error) {
-	if err != nil {
-		log.Fatal(err)
-	}
-}
 
 func main() {
 
@@ -44,8 +37,9 @@ func main() {
 
 	router.GET("/projects", func(c *gin.Context) {
 		res, err := blog.GetProjects(3)
-
-		checkErr(err)
+		if err != nil {
+			c.HTML(http.StatusInternalServerError, "error.html", nil)
+		}
 
 		if c.GetHeader("HX-Request") == "true" {
 			c.HTML(http.StatusOK, "projects.html", res)
@@ -61,7 +55,9 @@ func main() {
 
 		fmt.Println(project)
 
-		checkErr(err)
+		if err != nil {
+			c.HTML(http.StatusInternalServerError, "error.html", nil)
+		}
 
 		if project.Title == "" {
 			c.HTML(http.StatusBadRequest, "projects.html", gin.H{
@@ -78,7 +74,9 @@ func main() {
 
 		res, err := blog.GetPosts(3)
 
-		checkErr(err)
+		if err != nil {
+			c.HTML(http.StatusInternalServerError, "error.html", nil)
+		}
 
 		if c.GetHeader("HX-Request") == "true" {
 			c.HTML(http.StatusOK, "blog.html", res)
@@ -94,7 +92,9 @@ func main() {
 
 		fmt.Println(post)
 
-		checkErr(err)
+		if err != nil {
+			c.HTML(http.StatusInternalServerError, "error.html", nil)
+		}
 
 		if post.Title == "" {
 			c.HTML(http.StatusBadRequest, "post.html", gin.H{

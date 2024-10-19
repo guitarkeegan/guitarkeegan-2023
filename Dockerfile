@@ -1,5 +1,5 @@
 # Use the official Go image as the base image
-FROM golang:1.20-alpine3.19 AS build-stage
+FROM golang:1.23.2-alpine3.19 AS build-stage
 
 WORKDIR /build
 COPY . .

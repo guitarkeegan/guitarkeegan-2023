@@ -1,8 +1,11 @@
 module guitarkeegan-2023.com/v2
 
-go 1.20
+go 1.23.2
 
-require github.com/gin-gonic/gin v1.9.1
+require (
+	github.com/gin-gonic/gin v1.9.1
+	modernc.org/sqlite v1.28.0
+)
 
 require (
 	github.com/bytedance/sonic v1.10.2 // indirect
@@ -43,7 +46,6 @@ require (
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.7.2 // indirect
 	modernc.org/opt v0.1.3 // indirect
-	modernc.org/sqlite v1.28.0 // indirect
 	modernc.org/strutil v1.1.3 // indirect
 	modernc.org/token v1.0.1 // indirect
 )

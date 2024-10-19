@@ -8,7 +8,7 @@
   <section class="about-wp">
     <div class="about">
       {{range .}}
-      <a href="/projects/{{.Id}}">
+      <a class="project-link" href="/projects/{{.Id}}">
         <h2>{{.Title}}</h2>
       </a>
       {{if .Live}}

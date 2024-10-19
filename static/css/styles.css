@@ -8,6 +8,7 @@
   --main-300: rgba(168, 168, 168, 1);
   --main-200: rgba(227, 221, 93, 1);
   --main-100: rgba(234, 231, 166, 1);
+  --button-bg: rgba(171, 48, 66, 1);
 }
 
 h1 {
@@ -64,7 +65,7 @@ header {
   font-size: 24px;
 }
 
-header > div {
+header>div {
   color: var(--main-500);
   padding: 18px 12px;
   background-color: var(--main-100);
@@ -81,6 +82,11 @@ header > div {
   gap: 24px;
   justify-content: center;
   color: var(--main-500);
+}
+
+.email-link,
+.project-link {
+  color: var(--button-bg);
 }
 
 .about {
@@ -107,6 +113,10 @@ header > div {
   right: 0;
 }
 
+#home-vid {
+  transition: width 0.5s;
+}
+
 .c-div {
   max-width: 280px;
 }
@@ -121,9 +131,11 @@ header > div {
     flex-direction: row;
     justify-content: space-evenly;
   }
+
   a:hover {
     opacity: 50%;
   }
+
   h1 {
     font-size: 64px;
   }
@@ -140,19 +152,27 @@ header > div {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
+  from {
+    opacity: 0;
+  }
 }
 
 @keyframes fade-out {
-  to { opacity: 0; }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes slide-from-right {
-  from { transform: translateX(90px); }
+  from {
+    transform: translateX(90px);
+  }
 }
 
 @keyframes slide-to-left {
-  to { transform: translateX(-90px); }
+  to {
+    transform: translateX(-90px);
+  }
 }
 
 .slide-it {
@@ -161,9 +181,10 @@ header > div {
 
 ::view-transition-old(slide-it) {
   animation: 180ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-  600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
 }
+
 ::view-transition-new(slide-it) {
   animation: 420ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-  600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+    600ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 }
